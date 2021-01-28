@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Quizzes
+{% endblock %}
+
+{% block content %}
+    <div style="margin-top: 180px">
+        {% for question in questions %}
+            <h5 style="color: white">{{ question.question_text }}</h5>
+            {% for answer in answers %}
+                {% if answer.question.id == question.id %}
+                    <label>
+                        <input name="group1" type="radio"/>
+                        <span style="color: white">{{ answer.answer_text }}</span><br>
+                    </label>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}
+<label>
+    <input name="group1" type="radio"/>
+    <span>{{ answer.answer_text }}</span>
+</label>
