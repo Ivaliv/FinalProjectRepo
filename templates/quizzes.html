@@ -6,20 +6,23 @@
 
 {% block content %}
     <div style="margin-top: 180px">
-        {% for question in questions %}
-            <h5 style="color: white">{{ question.question_text }}</h5>
-            {% for answer in answers %}
-                {% if answer.question.id == question.id %}
-                    <label>
-                        <input name="group1" type="radio"/>
-                        <span style="color: white">{{ answer.answer_text }}</span><br>
-                    </label>
-                {% endif %}
+        <form class="col s12" action="{% url 'results' %}" method="post">
+            {% csrf_token %}
+            {% for question in questions %}
+                <h5 style="color: white">{{ question.question_text }}</h5>
+                {% for answer in answers %}
+                    {% if answer.question.id == question.id %}
+                        <label>
+                            <input name="{{ question.question_text }}" value="{{ answer.answer_text }}" type="radio"/>
+                            <span style="color: white">{{ answer.answer_text }}</span><br>
+                        </label>
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
+            <br>
+            <button class="btn waves-effect waves-light" type="submit">Results<i class="material-icons right">send</i>
+            </button>
+        </form>
     </div>
+    <br>
 {% endblock %}
-<label>
-    <input name="group1" type="radio"/>
-    <span>{{ answer.answer_text }}</span>
-</label>

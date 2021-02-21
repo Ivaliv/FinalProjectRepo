@@ -2,10 +2,32 @@
 {% load static %}
 
 {% block title %}
-Home
+    Home
 {% endblock %}
 
 {% block content %}
+    <div class="center-align" style="margin-top: 180px; color: white;">
+        <p>This site is designed for people who want to learn through testing.
+            The main topic is economics and finance.</p>
+        <p>In order to see the quizzes, you must be logged in.</p>
+        <img height="25%" width="25%" src="{% static 'images/homepage1.JPG' %}">
+        <br>
+        <p>|||</p>
+        <br>
 
+        <p>Next, go to the "Quizzes" tab and click.</p>
+        <img height="25%" width="25%" src="{% static 'images/homepage2.JPG' %}">
+        <br>
+        <p>|||</p>
+        <br>
+
+        <p>Finally, a quiz, in this format will appear.</p>
+        <img height="50%" width="50%" src="{% static 'images/homepage3.JPG' %}">
+        <br>
+        <p>|||</p>
+        <br>
+
+        <p>Complete it, submit your answers and get your results.</p>
+    </div>
 
 {% endblock %}
